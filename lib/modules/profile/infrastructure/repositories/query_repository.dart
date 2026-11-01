@@ -3,10 +3,10 @@ import '../../domain/dtos/in/looking_user_exist_dto.dart';
 import '../../domain/entities/user_entity.dart';
 import '../../domain/repositories/query_user_repository.dart';
 
-class QueryLocalRepository implements QueryUserRepository {
+class QueryUserRepositoryImpl implements QueryUserRepository {
   final QueryUserDatasource queryDatasource;
 
-  QueryLocalRepository({required this.queryDatasource});
+  QueryUserRepositoryImpl({required this.queryDatasource});
 
   @override
   Future<User> queryUser(String userId) {
