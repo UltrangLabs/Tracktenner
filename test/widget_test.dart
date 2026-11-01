@@ -25,6 +25,6 @@ void main() {
     await tester.tap(find.byIcon(Icons.access_time_rounded));
     await tester.pumpAndSettle();
 
-    expect(find.text('Sección de Carrera en desarrollo'), findsOneWidget);
+    expect(find.byType(DashboardScreen), findsOneWidget);
   });
 }
