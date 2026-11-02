@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 
+import '../../../modules/profile/presentation/screens/my_profile_screen.dart';
 import '../../../shared/layout/main_layout_screen.dart';
 import '../../../shared/screens/dashboard_screen.dart';
 import 'constants/routes_path_constant.dart';
@@ -8,7 +9,7 @@ final _dashboardBranch = StatefulShellBranch(
   routes: [
     GoRoute(
       path: kRoutesPath.dashboard,
-      builder: (context, state) => const DashboardScreen(),
+      builder: (context, state) => const MyProfileScreen(),
     ),
   ],
 );
