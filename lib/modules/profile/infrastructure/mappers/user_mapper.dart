@@ -1,12 +1,17 @@
 import '../../../../core/domain/errors/custom_error.dart';
 import '../../../../core/domain/types/app_uuid.dart';
 import '../../../../core/domain/types/unknown_type.dart';
+import '../../../../core/infrastructure/adapters/uuid_adapter.dart';
 import '../../domain/constants/base_user_values.dart';
 import '../../domain/dtos/in/create_user_dto.dart';
 import '../../domain/entities/user_entity.dart';
 import '../../domain/mappers/user_mapper.dart';
 
 class UserMapperImpl implements UserMapper {
+  final GenerateUuIdV4 _generateUuIdV4;
+
+  UserMapperImpl({this._generateUuIdV4 = generateUuidV4});
+
   @override
   User fromDbToEntity(Unknown dbData) {
     if (dbData.isEmpty) {
@@ -17,7 +22,7 @@ class UserMapperImpl implements UserMapper {
     }
 
     return User(
-      id: dbData['userId'] as AppUuid,
+      id: AppUuid(dbData['userId'] as String),
       virtualCoins: dbData['virtualCoins'] as int,
       currentStreak: dbData['currentStreak'] as int,
       highestStreak: dbData['highestStreak'] as int,
@@ -28,7 +33,7 @@ class UserMapperImpl implements UserMapper {
   @override
   Unknown fromEntityToDb(User user) {
     return {
-      'id': user.id,
+      'userId': user.id.value,
       'virtualCoins': user.virtualCoins,
       'currentStreak': user.currentStreak,
       'highestStreak': user.highestStreak,
@@ -39,6 +44,7 @@ class UserMapperImpl implements UserMapper {
   @override
   Unknown fromCreateDtoToDb(CreateUserDto dto) {
     return {
+      'userId': _generateUuIdV4().value,
       'name': dto.name,
       'virtualCoins': kDefaultUserValues.virtualCoins,
       'currentStreak': kDefaultUserValues.currentStreak,
