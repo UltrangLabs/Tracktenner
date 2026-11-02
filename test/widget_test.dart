@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:running/main.dart';
+import 'package:running/modules/profile/presentation/screens/my_profile_screen.dart';
 import 'package:running/shared/screens/dashboard_screen.dart';
 import 'package:running/shared/widgets/bottom_nav.dart';
 
 void main() {
-  testWidgets('DashboardScreen smoke test verifies navigation tabs', (
+  testWidgets('Dashboard smoke test verifies navigation tabs', (
     WidgetTester tester,
   ) async {
     await tester.pumpWidget(const MyApp());
     await tester.pumpAndSettle();
 
-    expect(find.byType(DashboardScreen), findsOneWidget);
+    expect(find.byType(MyProfileScreen), findsOneWidget);
     expect(find.byType(BottomNav), findsOneWidget);
 
     expect(find.text('Inicio'), findsWidgets);
