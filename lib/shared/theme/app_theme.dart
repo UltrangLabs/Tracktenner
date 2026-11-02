@@ -51,3 +51,5 @@ const Color petHaloBackgroundColor = Color.fromRGBO(255, 252, 245, 1);
 const Color petHaloBorderColor = Color.fromRGBO(248, 237, 216, 1);
 const Color cardBackgroundColor = Color.fromRGBO(255, 255, 255, 1);
 const Color cardShadowColor = Color.fromRGBO(0, 0, 0, 0.04);
+const Color inputBorderColor = Color.fromRGBO(225, 228, 233, 1);
+const Color inputErrorColor = Color.fromRGBO(210, 80, 60, 1);

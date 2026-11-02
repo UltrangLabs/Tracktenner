@@ -65,6 +65,42 @@ const kDailyMissionCardDimensions = (
   shadowOffsetY: 4.0,
 );
 
+// User form dimensions
+const kUserFormDimensions = (
+  inputBorderRadius: 16.0,
+  inputBorderWidth: 1.5,
+  inputContentPaddingHorizontal: 16.0,
+  inputContentPaddingVertical: 14.0,
+  inputIconSize: 20.0,
+  submitButtonHeight: 52.0,
+  submitButtonRadius: 16.0,
+  cardPadding: 20.0,
+  cardRadius: 20.0,
+);
+
+// Pet carousel dimensions
+const kPetCarouselDimensions = (
+  bannerHeight: 220.0,
+  bannerBorderWidth: 1.5,
+  stageHeight: 190.0,
+  petImageWidth: 150.0,
+  petImageHeight: 110.0,
+  petImageRadius: 18.0,
+  haloSize: 180.0,
+  haloBorderWidth: 2.0,
+  navButtonSize: 42.0,
+  navIconSize: 22.0,
+  navButtonElevation: 2.0,
+  indicatorDotSize: 8.0,
+  indicatorActiveDotWidth: 20.0,
+  indicatorSpacing: 6.0,
+  indicatorRadius: 4.0,
+  badgePaddingHorizontal: 12.0,
+  badgePaddingVertical: 4.0,
+  badgeRadius: 16.0,
+  transitionDurationMs: 300,
+);
+
 // Texts and UI copy
 const kProfileStrings = (
   appName: 'Tracknner',
@@ -83,3 +119,51 @@ const kProfileStrings = (
   dailyMissionTag: 'MISIÓN DIARIA',
   dailyMissionTitle: 'Objetivo de hoy: Corre 15 minutos',
 );
+
+// User form copy
+const kUserFormStrings = (
+  formTitle: 'Crea tu Perfil',
+  formSubtitle:
+      'Elige tu compañero y dinos tu nombre para comenzar la aventura.',
+  petBannerTitle: 'ELIGE A TU COMPAÑERO',
+  nameLabel: 'Nombre del Corredor',
+  nameHint: 'Ej. Alex Runner',
+  nameHelper: 'Mínimo 3 caracteres y máximo 50',
+  nameRequiredError: 'El nombre es requerido',
+  nameMinLengthError: 'El nombre es muy corto',
+  nameMaxLengthError: 'El nombre es muy largo',
+  nameInvalidError: 'El nombre contiene caracteres inválidos',
+  submitButtonText: 'Crear Perfil',
+  previousPetTooltip: 'Mascota anterior',
+  nextPetTooltip: 'Mascota siguiente',
+  selectedBadgeText: 'Seleccionado',
+);
+
+typedef PetOption = ({String id, String name, String breed, String imagePath});
+
+const List<PetOption> kAvailablePets = [
+  (
+    id: 'golden',
+    name: 'Max',
+    breed: 'Golden Retriever',
+    imagePath: 'assets/imgs/pets/golden.jpg',
+  ),
+  (
+    id: 'chihuahua',
+    name: 'Kiu',
+    breed: 'Chihuahua',
+    imagePath: 'assets/imgs/pets/chihuahua.jpg',
+  ),
+  (
+    id: 'poodle',
+    name: 'Luna',
+    breed: 'Poodle',
+    imagePath: 'assets/imgs/pets/poodle.jpg',
+  ),
+  (
+    id: 'shih_tzu',
+    name: 'Rocky',
+    breed: 'Shih Tzu',
+    imagePath: 'assets/imgs/pets/shih-tzu.jpg',
+  ),
+];

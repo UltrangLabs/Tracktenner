@@ -15,6 +15,7 @@ import '../infrastructure/datasources/query_local_datasource.dart';
 import '../infrastructure/mappers/user_mapper.dart';
 import '../infrastructure/repositories/mutation_repository.dart';
 import '../infrastructure/repositories/query_repository.dart';
+import '../presentation/controllers/profile_controller.dart';
 
 void initProfileDi() {
   //* DB
@@ -69,4 +70,12 @@ void initProfileDi() {
     () => getUserAlreadyHaveAnAccount.execute,
   );
   sl.registerLazySingleton<ExecuteCreateUserUseCase>(() => createUser.execute);
+
+  //* Controllers
+  sl.registerFactory<ProfileController>(
+    () => ProfileController(
+      getUserAction: sl<ExecuteGetUserAlreadyHaveAnAccountUseCase>(),
+      createUserAction: sl<ExecuteCreateUserUseCase>(),
+    ),
+  );
 }
