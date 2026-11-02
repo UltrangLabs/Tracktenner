@@ -237,9 +237,14 @@ class _PetImageHalo extends StatelessWidget {
     Radius.circular(kPetCarouselDimensions.petImageRadius),
   );
 
-  static final BoxDecoration _haloDecoration = BoxDecoration(
+  static const BoxDecoration _haloDecoration = BoxDecoration(
     shape: BoxShape.circle,
     color: whiteColor,
+  );
+
+  // El borde se pinta como foreground para quedar por encima de la imagen.
+  static final BoxDecoration _haloBorderDecoration = BoxDecoration(
+    shape: BoxShape.circle,
     border: Border.fromBorderSide(
       BorderSide(
         color: petHaloBorderColor,
@@ -257,7 +262,9 @@ class _PetImageHalo extends StatelessWidget {
     return Container(
       width: kPetCarouselDimensions.haloSize,
       height: kPetCarouselDimensions.haloSize,
+      clipBehavior: Clip.antiAlias,
       decoration: _haloDecoration,
+      foregroundDecoration: _haloBorderDecoration,
       child: Center(
         child: ClipRRect(
           borderRadius: _imageRadius,

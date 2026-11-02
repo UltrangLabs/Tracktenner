@@ -56,6 +56,8 @@ class _UserFormState extends State<UserForm> {
         key: _formKey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
+          // Evita que el formulario se estire infinitamente dentro del modal.
+          mainAxisSize: MainAxisSize.min,
           children: [
             const _FormHeader(),
             SizedBox(height: kProfileLayoutDimensions.spacingDefault),
@@ -253,6 +255,7 @@ class _SubmitButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: kUserFormDimensions.submitButtonHeight,
+      width: double.infinity,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: primaryColor,
